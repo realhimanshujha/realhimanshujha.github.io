@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Admission Fee Calculator</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Admission Fee Calculator</h1>
+
+    <div class="form-group">
+      <label>Student Name</label>
+      <input type="text" id="studentName" placeholder="Enter Student Name">
+    </div>
+
+    <div class="form-group">
+      <label>Qualification</label>
+      <input type="text" id="qualification" placeholder="Enter Qualification">
+    </div>
+
+    <!-- SECTION -->
+
+    <div class="form-group">
+      <label>Select Category</label>
+
+      <select id="category" onchange="loadCourses(); handlePaymentOptions()">
+        <option value="">-- Select Category --</option>
+
+        <option value="diploma">
+          Diploma & Long-Term Courses
+        </option>
+
+        <option value="hardware">
+          Hardware & IT-Infrastructure
+        </option>
+
+        <option value="professional">
+          Professional Certification Courses
+        </option>
+
+        <option value="crash">
+          Short-Term / Crash Courses
+        </option>
+
+        <option value="vocational">
+          Vocational & Skill-Based Courses
+        </option>
+      </select>
+    </div>
+
+    <!-- COURSE -->
+
+    <div class="form-group">
+      <label>Select Course</label>
+
+      <select id="course">
+        <option value="">-- Select Course --</option>
+      </select>
+    </div>
+
+    <!-- PAYMENT -->
+
+    <div class="form-group">
+
+      <label>Payment Type</label>
+
+      <div class="radio-group">
+
+        <label>
+          <input type="radio" name="payment" value="full" checked>
+          Full Payment
+        </label>
+
+        <label>
+          <input type="radio" name="payment" value="installment">
+          Installment
+        </label>
+
+      </div>
+
+    </div>
+
+    <button onclick="calculateFee()">
+      Calculate Fee
+    </button>
+
+    <!-- RESULT -->
+
+    <div class="result" id="result">
+
+      <h2 style="margin-bottom:20px;">
+        Fee Details
+      </h2>
+
+      <p><strong>Student Name:</strong> <span id="rName"></span></p>
+
+      <p><strong>Qualification:</strong> <span id="rQualification"></span></p>
+
+      <p><strong>Course:</strong> <span id="rCourse"></span></p>
+
+      <p><strong>Duration:</strong> <span id="rDuration"></span></p>
+
+      <p><strong>Course Fee:</strong> ₹<span id="rFee"></span></p>
+
+      <div id="paymentResult"></div>
+
+    </div>
+
+    <!-- OFFER BOX -->
+
+    <div class="offer-box">
+
+      <h3>⚡ Limited Time Admission Offer</h3>
+
+      <p>
+        Get up to 10% discount on full payment.
+      </p>
+
+      <p>
+        🎁 Special 3% discount may be available for eligible students by the Bharalumukh Branch Director.
+      </p>
+
+      <p>
+        ⏳ Offer valid for 3 days from quotation date.
+      </p>
+
+      <p class="note">
+        * Installment plans are not eligible for full-payment discounts.
+      </p>
+
+    </div>
+
+  </div>
+
+<script src="script.js" defer></script>
+</body>
+
+</html>
