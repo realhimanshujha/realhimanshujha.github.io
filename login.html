@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<head>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo.png">
+<title>Vista Educare Bharalumukh</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(15,23,42,0.8),
+        rgba(15,23,42,0.8)
+    ),
+    url('banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.login-box{
+
+    width:100%;
+    max-width:420px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.25);
+}
+
+.logo{
+    width:120px;
+    display:block;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+h1{
+    text-align:center;
+    color:#dc2626;
+    margin-bottom:10px;
+    font-size:34px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#334155;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border-radius:14px;
+    border:1px solid #cbd5e1;
+    background:#f8fafc;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#dc2626;
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+
+    background:
+    linear-gradient(to right,#dc2626,#ef4444);
+
+    color:white;
+
+    font-size:17px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.95;
+}
+
+.error{
+    margin-top:15px;
+    text-align:center;
+    color:red;
+    font-size:14px;
+}
+
+.footer{
+    margin-top:25px;
+    text-align:center;
+    color:#64748b;
+    font-size:13px;
+}
+
+</style>
+
+<meta name="robots" content="noindex,nofollow">
+
+</head>
+<body>
+
+<div class="login-box">
+
+    <img src="logo.png" class="logo">
+
+    <h1>Vista Educare Bharalumukh</h1>
+
+    <p class="subtitle">
+        Authorized Staff Access Only
+    </p>
+
+    <label>Username</label>
+
+    <input type="text" id="username" placeholder="Enter Username">
+
+    <label>Password</label>
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">
+        Login
+    </button>
+
+    <div class="error" id="error"></div>
+
+    <div class="footer">
+        Vista Educare Bharalumukh Centre Admission System
+    </div>
+
+</div>
+
+<script>
+
+function login(){
+
+    const username =
+    document.getElementById('username').value;
+
+    const password =
+    document.getElementById('password').value;
+
+    // CHANGE THESE
+
+    const correctUsername = 'Vista@123';
+    const correctPassword = 'Globaledge@123';
+
+    if(
+        username === correctUsername &&
+        password === correctPassword
+    ){
+
+        localStorage.setItem('loggedIn','true');
+
+        window.location.href = 'index.html';
+    }
+
+    else{
+
+        document.getElementById('error').innerText =
+        'Invalid Username or Password';
+    }
+}
+
+</script>
+
+</body>
+</html>

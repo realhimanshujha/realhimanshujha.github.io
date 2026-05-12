@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vista Educare - Admission Fee Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- TOP BANNER -->
+
+        <div class="top-banner">
+
+            <div class="brand-row">
+
+                <img src="logo.png" class="logo">
+
+                <div>
+
+                    <h1>Vista Educare</h1>
+
+                    <p class="tagline">
+                        ...where success is a tradition.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="banner-text">
+
+                <h2>Admission Fee Calculator</h2>
+
+                <p>
+                    Calculate course fees, discounts, installment plans and admission offers instantly for students.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CONTENT -->
+
+        <div class="content">
+
+            <!-- STUDENT NAME -->
+
+            <div class="form-group">
+
+                <label>Student Name</label>
+
+                <input type="text" id="studentName" placeholder="Enter Student Name">
+
+            </div>
+
+            <!-- QUALIFICATION -->
+
+            <div class="form-group">
+
+                <label>Select Counselor</label>
+
+                <select id="counselor">
+
+                    <option value="">
+                        -- Select Counselor --
+                    </option>
+
+                    <option value="Ravi Kumar">
+                        Ravi Kumar
+                    </option>
+
+                    <option value="Himanshu Kumar Jha">
+                        Himanshu Kumar Jha
+                    </option>
+
+                    <option value="Fatima Sumaiya">
+                        Fatima Sumaiya
+                    </option>
+                    
+                    <option value="Anup Mazumdar">
+                        Anup Mazumdar
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Qualification</label>
+
+                <input type="text" id="qualification" placeholder="Enter Qualification">
+
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label>Select Category</label>
+
+                <select id="category" onchange="loadCourses(); handlePaymentOptions()">
+
+                    <option value="">-- Select Category --</option>
+
+                    <option value="diploma">
+                        Diploma & Long-Term Courses
+                    </option>
+
+                    <option value="hardware">
+                        Hardware & IT-Infrastructure
+                    </option>
+
+                    <option value="professional">
+                        Professional Certification Courses
+                    </option>
+
+                    <option value="crash">
+                        Short-Term / Crash Courses
+                    </option>
+
+                    <option value="vocational">
+                        Vocational & Skill-Based Courses
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- COURSE -->
+
+            <div class="form-group">
+
+                <label>Select Course</label>
+
+                <select id="course">
+
+                    <option value="">
+                        -- Select Course --
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- PAYMENT -->
+
+            <div class="form-group">
+
+                <label>Payment Type</label>
+
+                <div class="radio-group">
+
+                    <label>
+
+                        <input type="radio" name="payment" value="full" checked>
+
+                        Full Payment
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio" name="payment" value="installment">
+
+                        Installment
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button onclick="calculateFee()">
+
+                Calculate Fee
+
+            </button>
+
+            <button onclick="window.print()" class="print-btn">
+                Print Quotation
+            </button>
+
+            <!-- RESULT -->
+
+            <div class="result" id="result">
+
+                <h2>Fee Details</h2>
+
+                <p>
+                    <strong>Student Name:</strong>
+                    <span id="rName"></span>
+                </p>
+
+                <p>
+                    <strong>Qualification:</strong>
+                    <span id="rQualification"></span>
+                </p>
+
+                <p>
+                    <strong>Counselor:</strong>
+                    <span id="rCounselor"></span>
+                </p>
+
+                <p>
+                    <strong>Course:</strong>
+                    <span id="rCourse"></span>
+                </p>
+
+                <p>
+                    <strong>Duration:</strong>
+                    <span id="rDuration"></span>
+                </p>
+
+                <p>
+                    <strong>Course Fee:</strong>
+                    ₹<span id="rFee"></span>
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    <span id="currentDate"></span>
+                </p>
+
+                <div id="paymentResult"></div>
+
+            </div>
+
+            <!-- TRUST SECTION -->
+
+            <div class="trust-section">
+
+                <h3>Why Vista Educare?</h3>
+
+                <div class="trust-grid">
+
+                    <div class="trust-card">
+                        ISO 9001:2015 Certified Institute
+                    </div>
+
+                    <div class="trust-card">
+                        MSME Registered
+                    </div>
+
+                    <div class="trust-card">
+                        Updated Industry Standard Courses
+                    </div>
+
+                    <div class="trust-card">
+                        Expert Faculty Members
+                    </div>
+
+                    <div class="trust-card">
+                        Well Maintained Computer Lab
+                    </div>
+
+                    <div class="trust-card">
+                        SR Act Govt. of Assam
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- OFFER BOX -->
+
+            <div class="offer-box">
+
+                <h3>
+                    ⚡ Limited Time Admission Offer
+                </h3>
+
+                <p>
+                    Get up to 10% discount on full payment.
+                </p>
+
+                <p>
+                    🎁 Additional 3% concession can be approved by the Bharalumukh Branch Director for eligible students.
+                </p>
+
+                <p>
+                    ⏳ Offer valid for 3 days from quotation date.
+                </p>
+
+                <p class="note">
+                    * Installment plans are not eligible for discounts in short-term/crash courses.
+                </p>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="footer">
+
+                <p>
+                    Vista Educare | ISO 9001:2015 Certified Institute
+                </p>
+
+                <p>
+                    www.vistaeducare.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
